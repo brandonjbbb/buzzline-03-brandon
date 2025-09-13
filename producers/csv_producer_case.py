@@ -1,5 +1,5 @@
 """
-csv_producer_case.py
+csv_producer_brandon.py
 
 Stream numeric data to a Kafka topic.
 
@@ -80,41 +80,32 @@ logger.info(f"Data file: {DATA_FILE}")
 
 def generate_messages(file_path: pathlib.Path):
     """
-    Read from a csv file and yield records one by one, continuously.
+    Read from a csv file and yield rows one by one.
 
     Args:
         file_path (pathlib.Path): Path to the CSV file.
 
     Yields:
-        str: CSV row formatted as a string.
+        dict: JSON-formatted dict with text field.
     """
-    while True:
-        try:
-            logger.info(f"Opening data file in read mode: {DATA_FILE}")
-            with open(DATA_FILE, "r") as csv_file:
-                logger.info(f"Reading data from file: {DATA_FILE}")
+    try:
+        logger.info(f"Opening data file: {file_path}")
+        with open(file_path, "r") as csv_file:
+            csv_reader = csv.DictReader(csv_file)
+            for row in csv_reader:
+                if "text" not in row:
+                    logger.error(f"Missing 'text' column in row: {row}")
+                    continue
 
-                csv_reader = csv.DictReader(csv_file)
-                for row in csv_reader:
-                    # Ensure required fields are present
-                    if "temperature" not in row:
-                        logger.error(f"Missing 'temperature' column in row: {row}")
-                        continue
-
-                    # Generate a timestamp and prepare the message
-                    current_timestamp = datetime.utcnow().isoformat()
-                    message = {
-                        "timestamp": current_timestamp,
-                        "temperature": float(row["temperature"]),
-                    }
-                    logger.debug(f"Generated message: {message}")
-                    yield message
-        except FileNotFoundError:
-            logger.error(f"File not found: {file_path}. Exiting.")
-            sys.exit(1)
-        except Exception as e:
-            logger.error(f"Unexpected error in message generation: {e}")
-            sys.exit(3)
+                message = {"text": row["text"]}
+                logger.debug(f"Generated message: {message}")
+                yield message
+    except FileNotFoundError:
+        logger.error(f"File not found: {file_path}. Exiting.")
+        sys.exit(1)
+    except Exception as e:
+        logger.error(f"Unexpected error in message generation: {e}")
+        sys.exit(3)
 
 
 #####################################
