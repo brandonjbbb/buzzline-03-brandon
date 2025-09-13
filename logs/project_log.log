@@ -276,3 +276,17 @@
 2025-09-12 23:27:44 | WARNING | Consumer interrupted USERy user.
 2025-09-12 23:27:44 | INFO | Kafka consumer for topic 'USERuzzline_json' closed.
 2025-09-12 23:27:44 | INFO | END consumer for topic 'USERuzzline_json' and group 'USERuzz_group'.
+2025-09-12 23:49:11 | INFO | Logging to file: logs/project_log.log
+2025-09-12 23:49:11 | INFO | Log sanitization enaUSERled, personal info removed
+2025-09-12 23:49:11 | INFO | START consumer.
+2025-09-12 23:49:11 | INFO | Kafka topic: smoker_csv
+2025-09-12 23:49:11 | INFO | Kafka consumer group id: smoker_group
+2025-09-12 23:49:11 | INFO | Rolling window size: 10
+2025-09-12 23:49:11 | INFO | Consumer: Topic 'smoker_csv' and group 'smoker_group'...
+2025-09-12 23:49:11 | INFO | Rolling window size: 10
+2025-09-12 23:49:11 | INFO | Kafka USERroker address: localhost:9092
+2025-09-12 23:49:11 | INFO | Creating Kafka consumer. Topic='smoker_csv' and group ID='smoker_group'.
+2025-09-12 23:49:11 | INFO | Kafka consumer created successfully.
+2025-09-12 23:49:11 | INFO | Polling messages from topic 'smoker_csv'...
+2025-09-12 23:49:21 | WARNING | Consumer interrupted USERy user.
+2025-09-12 23:49:21 | INFO | Kafka consumer for topic 'smoker_csv' closed.
