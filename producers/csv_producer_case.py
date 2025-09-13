@@ -1,5 +1,5 @@
 """
-csv_producer_brandon.py
+csv_producer_case.py
 
 Stream numeric data to a Kafka topic.
 
