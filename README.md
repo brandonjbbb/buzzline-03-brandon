@@ -249,6 +249,27 @@ To save disk space, you can delete the .venv folder when not actively working on
 You can always recreate it, activate it, and reinstall the necessary packages later.
 Managing Python virtual environments is a valuable skill.
 
+## Edits
+Custom Additions
+JSON Producer & Consumer (Custom)
+Producer: producers/json_producer_brandon.py
+Consumer: consumers/json_consumer_brandon.py
+Run producer (Mac/Linux):
+source .venv/bin/activate
+python3 -m producers.json_producer_brandon
+Run consumer (Mac/Linux):
+source .venv/bin/activate
+python3 -m consumers.json_consumer_brandon
+CSV Producer & Consumer (Custom)
+Producer: producers/csv_producer_brandon.py
+Consumer: consumers/csv_consumer_brandon.py
+Run producer (Mac/Linux):
+source .venv/bin/activate
+python3 -m producers.csv_producer_brandon
+Run consumer (Mac/Linux):
+source .venv/bin/activate
+python3 -m consumers.csv_consumer_brandon
+
 ## License
 
 This project is licensed under the MIT License as an example project.
